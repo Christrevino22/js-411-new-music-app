@@ -1,10 +1,13 @@
 import React, { Component } from "react";
+import NavBar from "../NavBar/Navbar";
+import SwitchCard from "../SwitchCard/SwitchCard";
 
 class Dashboard extends Component {
   render() {
     return (
       <div>
-        <h1>THIS IS YOUR DASHBOARD!!!!!!!</h1>
+        <NavBar />
+        <SwitchCard />
       </div>
     );
   }

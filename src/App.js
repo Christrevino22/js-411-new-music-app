@@ -29,21 +29,23 @@ const useStyles = withStyles((theme) => ({
 //3RD ILL NEED TO MAKE THE USERNAME AND PASSWORD TEXTFIELDS*******FINISHED*****
 //4TH ILL NEED TO CREATE A BUTTON UNDER MY TEXTFIELD******FINSIHED******
 //5TH ILL NEEED TO CREATE A DASHBOARD COMPONENT *****FINISHED******
-//6TH NEED TO FIND A WAY TO ADD FUNCITONALITY TO MY LOGIN BUTTON
-//NEED TO TOO CATCH UP THIS PROJECT IS DUE ON TUESDAY
+//6TH NEED TO FIND A WAY TO ADD FUNCITONALITY TO MY LOGIN BUTTON*******IN PROGRESS STILL COULDN'T FIGURE IT OUT AS FAR AS MAKING THE STATE WITH THE LOGIN BUTTON TO WORK, SENT MATT A MESSSAGE HOPEFULLY HE RESPONDS BEFORE TUESDAY
+//7TH CREATE A NAVBAR FOR THE DASHBOARD*****FINISHED******
+//8TH CREATE (3) DIFFERENT CARDS*******FINISHED*****
+//9TH NEED TO CREATE A SWITCH CARD*******FINSIHED*******
+//10TH NEED TO CREATE A SLIDER CARD******FINISHED******
+//11TH NEED TO CREATE A SELECT CARD*******FINSIHED******
+//WHEN I GET HERE I WILL START WITH THE SYSTEM REQUIREMENTS PROCESS....
 
 class LoginAppBar extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      loggedIn: false,
+      loggedIn: true,
     };
   }
 
-  handleChange = (event) => {
-    this.setState({ loggedIn: !this.state.loggedIn });
-  };
   componentDidMount() {
     console.log("Mounted", this.state.loggedIn);
   }
@@ -51,6 +53,11 @@ class LoginAppBar extends Component {
   componentDidUpdate() {
     console.log("UPDATED", this.state.loggedIn);
   }
+  //maybe it isnt working because i might need to add some state to the username and password because Matt didnt have to out any specific text i guess as long as the the user and pass have more than ZERO CHARACTERS if it does have zero characters it will deny you......???????>>......
+  handleChange = (event) => {
+    console.log("this button was clicked", event);
+    // this.setState({ loggedIn: true });
+  };
 
   render() {
     const classes = withStyles;
@@ -65,13 +72,12 @@ class LoginAppBar extends Component {
             <Typography variant="h6" className={classes.title}>
               My Music App
             </Typography>
-            {/* LOGIN SHOULD BE AROUND HERE MORE OR LESS NEED TO REMEMBER HOW I DID MY OTHER PAGE  */}
           </Toolbar>
         </AppBar>
         <TextField />
         <LoginButton
+          onClick={this.handleChange}
           loggedIn={this.state.loggedIn}
-          handleChange={this.handleChange}
         />
       </div>
     );
