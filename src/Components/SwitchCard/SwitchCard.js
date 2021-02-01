@@ -32,7 +32,7 @@ export default function SwitchCard() {
     <Card className={classes.root}>
       <CardContent>
         <Typography className={classes.title} color="textPrimary" gutterBottom>
-          Online Mode
+          <h1>Online Modes</h1>
         </Typography>
         <Typography variant="body2" component="p">
           Is this application connected
