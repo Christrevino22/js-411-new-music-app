@@ -16,7 +16,7 @@ function LoginButton(props) {
   return (
     <div className={classes.root}>
       <Button
-        onClick={props.handleChange}
+        onClick={props.onClick}
         variant="contained"
         color="primary"
         loggedin={props.loggedin}

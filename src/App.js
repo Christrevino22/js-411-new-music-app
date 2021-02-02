@@ -42,7 +42,7 @@ class LoginAppBar extends Component {
     super(props);
 
     this.state = {
-      loggedIn: true,
+      loggedIn: false,
     };
   }
 
@@ -54,9 +54,10 @@ class LoginAppBar extends Component {
     console.log("UPDATED", this.state.loggedIn);
   }
   //maybe it isnt working because i might need to add some state to the username and password because Matt didnt have to out any specific text i guess as long as the the user and pass have more than ZERO CHARACTERS if it does have zero characters it will deny you......???????>>......
-  handleChange = (event) => {
-    console.log("this button was clicked", event);
-    // this.setState({ loggedIn: true });
+  //IT WAS BECAUSE I WAS TRYING TO ADD LOGGEDIN AS A PROP BUT IT DIDN'T DO ANYTHING, SO ONCE IT WAS REMOVED EVERTYTHING STARTED FUNCTIONING LIKE IT WAS SUPPOSED TOO.
+  onClick = (event) => {
+    // console.log("this button was clicked", event);
+    this.setState({ loggedIn: !this.state.loggedIn });
   };
 
   render() {
@@ -76,8 +77,8 @@ class LoginAppBar extends Component {
         </AppBar>
         <TextField />
         <LoginButton
-          onClick={this.handleChange}
-          loggedIn={this.state.loggedIn}
+          onClick={this.onClick}
+          // loggedIn={this.state.loggedIn}
         />
       </div>
     );
