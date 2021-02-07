@@ -87,3 +87,13 @@ function LoginAppBar() {
 }
 
 export default LoginAppBar;
+
+//********THIS IS A FUNCTION TO DELELTE AN ITEM**********
+//basically filter the tasks to return the id that doesnt equal that one which doesn't make much sense but i will look further into it
+// const deleteItem  = () => {
+  // setTasks(tasks.filter((task)=> task.id !==id))
+// }
+
+/*
+
+ */
