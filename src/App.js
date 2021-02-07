@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { usestate } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -37,52 +37,53 @@ const useStyles = withStyles((theme) => ({
 //11TH NEED TO CREATE A SELECT CARD*******FINSIHED******
 //WHEN I GET HERE I WILL START WITH THE SYSTEM REQUIREMENTS PROCESS....
 
-class LoginAppBar extends Component {
-  constructor(props) {
-    super(props);
+function LoginAppBar() {
+  const [loggedIn, setloggedIn] = usestate({
+    loggedIn: false,
+  });
+  // constructor(props) {
+  //   super(props);
 
-    this.state = {
-      loggedIn: false,
-    };
-  }
+  //   this.state = {
+  //     loggedIn: false,
 
-  componentDidMount() {
-    console.log("Mounted", this.state.loggedIn);
-  }
+  //   };
 
-  componentDidUpdate() {
-    console.log("UPDATED", this.state.loggedIn);
-  }
+  // componentDidMount() {
+  //   console.log("Mounted", this.state.loggedIn);
+  // }
+
+  // componentDidUpdate() {
+  //   console.log("UPDATED", this.state.loggedIn);
+  // }
   //maybe it isnt working because i might need to add some state to the username and password because Matt didnt have to out any specific text i guess as long as the the user and pass have more than ZERO CHARACTERS if it does have zero characters it will deny you......???????>>......
   //IT WAS BECAUSE I WAS TRYING TO ADD LOGGEDIN AS A PROP BUT IT DIDN'T DO ANYTHING, SO ONCE IT WAS REMOVED EVERTYTHING STARTED FUNCTIONING LIKE IT WAS SUPPOSED TOO.
-  onClick = (event) => {
+  const onClick = (event) => {
     // console.log("this button was clicked", event);
-    this.setState({ loggedIn: !this.state.loggedIn });
+    setloggedIn({ loggedIn: !this.state.loggedIn });
   };
 
-  render() {
-    const classes = withStyles;
+  const classes = withStyles;
 
-    return this.state.loggedIn ? (
-      <Dashboard />
-    ) : (
-      // the code for your login screen
-      <div className={classes.root}>
-        <AppBar position="static">
-          <Toolbar>
-            <Typography variant="h6" className={classes.title}>
-              My Music App
-            </Typography>
-          </Toolbar>
-        </AppBar>
-        <TextField />
-        <LoginButton
-          onClick={this.onClick}
-          // loggedIn={this.state.loggedIn}
-        />
-      </div>
-    );
-  }
+  return this.state.loggedIn ? (
+    <Dashboard />
+  ) : (
+    // the code for your login screen
+    <div className={classes.root}>
+      <AppBar position="static">
+        <Toolbar>
+          <Typography variant="h6" className={classes.title}>
+            My Music App
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <TextField />
+      <LoginButton
+        onClick={onClick}
+        // loggedIn={this.state.loggedIn}
+      />
+    </div>
+  );
 }
 
 export default LoginAppBar;
