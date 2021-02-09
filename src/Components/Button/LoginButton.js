@@ -19,7 +19,7 @@ function LoginButton(props) {
         onClick={props.onClick}
         variant="contained"
         color="primary"
-        loggedin={props.loggedin}
+        loggedin={props.loggedIn}
       >
         Login
       </Button>
