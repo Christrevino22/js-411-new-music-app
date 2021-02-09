@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import Switch from "@material-ui/core/Switch";
 
-export default function Switches() {
-  const [state, setState] = useState({
-    checkedA: true,
-  });
+export default function Switches(props) {
+  console.log("whats in this props", props)
 
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
@@ -13,7 +11,7 @@ export default function Switches() {
   return (
     <div>
       <Switch
-        checked={state.checkedA}
+        // checked={}
         onChange={handleChange}
         color="secondary"
         name="checkedB"
