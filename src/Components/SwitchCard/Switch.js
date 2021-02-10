@@ -7,6 +7,8 @@ export default function Switches(props) {
   return (
     <div>
       <Switch
+        //MATTS SAID THE PARENT NEED TO CONTAIN THE STATE OF THE CHILD
+        //VERY GOOD ADVICE FROM MATT ABOUT FUTURE THINKING
         checked={props.checked}
         onChange={props.handleChange}
         color="secondary"
