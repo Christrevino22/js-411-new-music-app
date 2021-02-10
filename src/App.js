@@ -24,19 +24,19 @@ const useStyles = makeStyles((theme) => ({
 
 export default function LoginAppBar() {
   const classes = useStyles();
-  const [loggedIn, setloggedIn] = useState({ loggedIn: false });
+  const [loggedIn, setloggedIn] = useState(false);
   const [toggle, settoggle] = useState({ toggle: true });
   const [slide, setslide] = useState({ slide: true });
   const [switchLife, setswitchLife] = useState({ switchLife: true });
 
   useEffect(() => {
-    console.log("this should return logged ins state hopef;;uy", loggedIn);
+    console.log("this should return logged ins state hopefuy", loggedIn);
   });
 
-  // const onClick = (event) => {
-  //   // console.log("this button was clicked", event);
-  //   setloggedIn(!loggedIn);
-  // };
+  const handleLoginClick = (event) => {
+    // console.log("this button was clicked", event);
+    setloggedIn(!loggedIn);
+  };
 
   if (loggedIn) {
     return <Dashboard />;
@@ -51,10 +51,7 @@ export default function LoginAppBar() {
           </Toolbar>
         </AppBar>
         <TextField />
-        <LoginButton
-          // onClick={onClick}
-          loggedin={{ loggedIn }}
-        />
+        <LoginButton onClick={handleLoginClick} loggedin={{ loggedIn }} />
       </div>
     );
   }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
@@ -25,6 +25,18 @@ const useStyles = makeStyles({
 });
 
 export default function SwitchCard() {
+  const [state, setState] = useState({
+    checkedA: false,
+  });
+
+  useEffect(() => {
+    console.log(state);
+  });
+
+  const handleChange = (event) => {
+    console.log(event.target.name, event.target.checked);
+    setState({ ...state, [event.target.name]: event.target.checked });
+  };
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
 
@@ -41,8 +53,9 @@ export default function SwitchCard() {
         </Typography>
       </CardContent>
       <CardActions>
-        <Switch />
+        <Switch checked={state.checkedA} handleChange={handleChange} />
       </CardActions>
+      {state.checkedA === false && <p>You are offline now</p>}
     </Card>
   );
 }
