@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
@@ -24,6 +24,12 @@ const useStyles = makeStyles({
 });
 
 export default function SliderCard() {
+  const [value, setValue] = useState(30);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
 
@@ -35,7 +41,7 @@ export default function SliderCard() {
           color="textSecondary"
           gutterBottom
         >
-          <h1>Master Volume</h1>
+          <p>Master Volume</p>
         </Typography>
         <Typography variant="body2" component="p">
           Overides all other sound
@@ -44,8 +50,9 @@ export default function SliderCard() {
         </Typography>
       </CardContent>
       <CardActions>
-        <Slider />
+        <Slider value={value} handleChange={handleChange} />
       </CardActions>
+      {value >= 80 && <p>Your volume is too HIGH!!</p>}
     </Card>
   );
 }

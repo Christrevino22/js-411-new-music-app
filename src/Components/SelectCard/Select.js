@@ -24,7 +24,7 @@ export default function NativeSelects(props) {
       <FormControl className={classes.formControl}>
         <InputLabel htmlFor="age-native-simple"></InputLabel>
         <Select
-          // native
+          native
           value={props.value}
           onChange={props.handleChange}
           inputProps={{
@@ -32,10 +32,10 @@ export default function NativeSelects(props) {
             id: "age-native-simple",
           }}
         >
-           <option aria-label="None" value="Normal" />
-           <option value={10}>Low</option>
-           <option value={20}>Normal</option>
-           <option value={30}>Loud</option>
+          <option aria-label="None" value={props.value} />
+          <option value={10}>Low</option>
+          <option value={20}>Normal</option>
+          <option value={30}>Loud</option>
         </Select>
       </FormControl>
     </div>
