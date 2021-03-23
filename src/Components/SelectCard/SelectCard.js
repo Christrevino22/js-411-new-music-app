@@ -76,7 +76,7 @@ export default function SimpleCard() {
           //   <option value={30}>Loud</option>
         />
       </CardActions>
-      {value === 20 && <p>YOUR MUSICS TOO LOUD!!!!</p>}
+      {state.value === 20 && <p>YOUR MUSICS TOO LOUD!!!!</p>}
     </Card>
   );
 }
